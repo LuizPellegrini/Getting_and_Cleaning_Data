@@ -76,21 +76,17 @@ angle(): Angle between to vectors.
 
 ### Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-gravityMean
-
-tBodyAccMean
-
-tBodyAccJerkMean
-
-tBodyGyroMean
-
+gravityMean          
+tBodyAccMean                         
+tBodyAccJerkMean                             
+tBodyGyroMean                                 
 tBodyGyroJerkMean
 
 ## Activities
 1 WALKING                               
 2 WALKING_UPSTAIRS                                 
-3 WALKING_DOWNSTAIRS
-4 SITTING
-5 STANDING
-6 LAYING
+3 WALKING_DOWNSTAIRS        
+4 SITTING              
+5 STANDING             
+6 LAYING               
 
