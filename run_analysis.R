@@ -6,28 +6,28 @@ library(data.table)
 ##
     if (!exists("featureNames")) { 
       featureNames <- read.table("features.txt")
-    }
+     }
     if (!exists("activityLabels"))  { 
       activityLabels <- read.table("activity_labels.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       subjectTrain <- read.table("train/subject_train.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       activityTrain <- read.table("train/y_train.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       featuresTrain <- read.table("train/X_train.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       subjectTest <- read.table("test/subject_test.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       activityTest <- read.table("test/y_test.txt", header = FALSE)
-    }
+     }
     if (!exists("activityLabels"))  { 
       featuresTest <- read.table("test/X_test.txt", header = FALSE)
-    }
+     }
 ## Merge Train and Test files accordin to common field names
 ##    
     subject <- rbind(subjectTrain, subjectTest)
@@ -64,12 +64,14 @@ library(data.table)
     names(selectedFields)<-gsub("tBody", "TimeBody", names(selectedFields))
     names(selectedFields)<-gsub("-freq()", "Frequency", names(selectedFields), ignore.case = TRUE)
     names(selectedFields)<-gsub("gravity", "Gravity", names(selectedFields))
+##
 ## Creation of a Tidy data set with the orderd variables Subject and Activity
 ##    
     selectedFields$Subject <- as.factor(selectedFields$Subject)
     selectedFields <- data.table(selectedFields)
     tidyData <- aggregate(. ~Subject + Activity, selectedFields, mean)
     tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
+##
 ## Creadting Tidy_Data on current working directory
 ##    
     write.table(tidyData, file = "Tidy_Data.txt", row.names = FALSE)
