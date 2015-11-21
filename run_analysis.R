@@ -28,7 +28,7 @@ library(data.table)
     if (!exists("activityLabels"))  { 
       featuresTest <- read.table("test/X_test.txt", header = FALSE)
      }
-## Merge Train and Test files accordin to common field names
+## Merge Train and Test files according to common field names
 ##    
     subject <- rbind(subjectTrain, subjectTest)
     activity <- rbind(activityTrain, activityTest)
@@ -46,7 +46,7 @@ library(data.table)
     columnsWithMeanSTD <- grep(".*Mean.*|.*Std.*", names(Comb_Files), ignore.case=TRUE)
     requiredColumns <- c(columnsWithMeanSTD, 562, 563)
     selectedFields <- Comb_Files[,requiredColumns]
-## Transform from numeric to characte type to receibe Activity name
+## Transform from numeric to character type to receive Activity name
 ##    
     selectedFields$Activity <- as.character(selectedFields$Activity)
     for (i in 1:6){
