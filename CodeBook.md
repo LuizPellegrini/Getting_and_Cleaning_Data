@@ -6,9 +6,7 @@
 
 tBodyAcc-XYZ
 tGravityAcc-XYZ
-
 tBodyAccJerk-XYZ
-
 tBodyGyro-XYZ
 tBodyGyroJerk-XYZ
 tBodyAccMag
